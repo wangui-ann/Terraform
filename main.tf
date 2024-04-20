@@ -1,4 +1,11 @@
 terraform {
+  cloud {
+    organization = "wangui-ann"
+    workspaces {
+      name = "learning-terraform-aws"
+    }
+  }
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -20,7 +27,7 @@ resource "aws_instance" "app_server" {
   subnet_id = "subnet-0694fbfebab207c28"
 
   tags = {
-    Name = "terraform-Instance"
+    Name = "var.instance_name"
   }
 }
 
